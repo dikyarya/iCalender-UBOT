@@ -1,0 +1,16 @@
+FROM vckyouuu/geezprojects:buster
+# Ical ganteng, Yang hapus credit, Lo babi heheh
+# ======================
+#    iCalender-UBOT DOCKER
+#   FROM DOCKERHUB.COM
+# ======================
+
+RUN git clone -b iCalender-UBOT https://github.com/dikyarya/iCalender-UBOT /root/userbot
+RUN mkdir /root/userbot/.bin
+RUN pip install --upgrade pip setuptools
+WORKDIR /root/userbot
+
+#Install python requirements
+RUN pip3 install -r https://raw.githubusercontent.com/dikyarya/iCalender-UBOT/iCalender-UBOT/requirements.txt
+
+CMD ["python3","-m","userbot"]
